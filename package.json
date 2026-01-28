@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "axios": "^1.13.3",
-    "cloudinary": "^2.9.0",
+    "cloudinary": "^1.41.3",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
@@ -9,10 +9,27 @@
     "express-validator": "^7.3.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongose": "^0.0.2-security",
+    "mongoose": "^9.1.5",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
     "uuid": "^13.0.0"
-  }
+  },
+  "name": "server-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lendrock/server-admin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lendrock/server-admin/issues"
+  },
+  "homepage": "https://github.com/Lendrock/server-admin#readme"
 }

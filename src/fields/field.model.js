@@ -47,5 +47,11 @@ const fieldSchema = new mongoose.Schema({
     },
 })
 
+//Indices para optimizar las busquedas
+
+fieldSchema.index({isActive: 1});
+fieldSchema.index({fieldName: 1});
+fieldSchema.index({fieldName: 1, isActive: 1});
+
 //Exportamos el modelo con el nombre 'Field' y el esquema fieldSchema
 export default mongoose.model('Field', fieldSchema);

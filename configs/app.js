@@ -6,6 +6,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import { corsOptions } from './cors-configuration.js';
 
+//Rutas
+import fieldRoutes from '../src/fields/field.routes.js';
+
 const BASE_URL = '/kinalSportAdmin/v1';
 
 // Configuracion de los middlewares
@@ -20,6 +23,11 @@ const middlewares = (app) => {
     app.use(morgan('dev'));
 }
 
+//Integracion de todas las rutas
+const routes = (app) => {
+    app.use(`${BASE_URL}/fields`, fieldRoutes);
+};
+
 //Funcion para iniciar el servidor
 const initServer = async (app) => {
     // Creacion de la instancia de la aplicacion
@@ -29,6 +37,7 @@ const initServer = async (app) => {
     try {
         // Configuracion de los middlewares (MI APLICACION)
         middlewares(app);
+        routes(app);
 
         app.listen(PORT, () => {
             console.log(`Servidor corriendo en el puerto ${PORT}`);
