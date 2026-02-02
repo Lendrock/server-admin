@@ -8,6 +8,7 @@ import { corsOptions } from './cors-configuration.js';
 
 //Rutas
 import fieldRoutes from '../src/fields/field.routes.js';
+import { dbConnection } from './db.js';
 
 const BASE_URL = '/kinalSportAdmin/v1';
 
@@ -36,6 +37,7 @@ const initServer = async (app) => {
 
     try {
         // Configuracion de los middlewares (MI APLICACION)
+        dbConnection();
         middlewares(app);
         routes(app);
 

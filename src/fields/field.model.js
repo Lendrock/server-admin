@@ -14,7 +14,7 @@ const fieldSchema = new mongoose.Schema({
         required: [true, 'El tipo de campo es obligatorio'],
         //enum: valores permitidos
         enum: {
-            values: ['Natural', 'Sintetica', 'Concreto'],
+            values: ['NATURAL', 'SINTETICA', 'CONCETRO'],
             message: 'Tipo de superficie no válida'
         }
     },
