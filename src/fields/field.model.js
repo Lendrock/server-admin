@@ -3,27 +3,27 @@
 import mongoose from 'mongoose';
 
 const fieldSchema = new mongoose.Schema({
-    fieldName:{ 
+    fieldName: {
         type: String,
         required: true,
-        trim: true, //Quita los espacios en blanco al inicio y al final
-        maxLength: [100, 'El nombre del campo no puede tener más de 100 caracteres']
+        trim: true,
+        maxLength: [100, 'El nombre del campo no puede tener mas de 100 caracteres'],
     },
-    fieldType:{ 
+    fieldType: {
         type: String,
-        required: [true, 'El tipo de campo es obligatorio'],
-        //enum: valores permitidos
+        required: [true, 'El tipo de campo es requerido'],
+        // enum: valores permitidos
         enum: {
-            values: ['NATURAL', 'SINTETICA', 'CONCETRO'],
-            message: 'Tipo de superficie no válida'
-        }
+            values: ['NATURAL', 'SINTETICA', 'CONCRETO'],
+            message: 'Tipo de superficie no válida',
+        },
     },
     capacity: {
         type: String,
         required: [true, 'La capacidad es requerida'],
         enum: {
-        values: ['FUTBOL_5', 'FUTBOL_7', 'FUTBOL_11'],
-        message: 'Capacidad no válida',
+            values: ['FUTBOL_5', 'FUTBOL_7', 'FUTBOL_11'],
+            message: 'Capacidad no válida',
         },
     },
     pricePerHour: {
@@ -47,11 +47,10 @@ const fieldSchema = new mongoose.Schema({
     },
 })
 
-//Indices para optimizar las busquedas
+// Indices para optimizar las busquedas
+fieldSchema.index({ isActive: 1 });
+fieldSchema.index({ fieldName: 1 });
+fieldSchema.index({ fieldName: 1, isActive: 1 });
 
-fieldSchema.index({isActive: 1});
-fieldSchema.index({fieldName: 1});
-fieldSchema.index({fieldName: 1, isActive: 1});
-
-//Exportamos el modelo con el nombre 'Field' y el esquema fieldSchema
+// exportamos el modelo con el nombre Field
 export default mongoose.model('Field', fieldSchema);
